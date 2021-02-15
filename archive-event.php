@@ -18,11 +18,11 @@ while ( $loop->have_posts() ) { $loop->the_post();
 
 if ($present_date <= $event_date) {?>
 	<div class="upcoming-container">
-		<div class="event-title"> <?php echo $event_title;?> </div>
-		<div class="event-details"> <?php echo $event_details;?> </div>
-		<div class="event-start-timing"> <?php echo $event_stiming;?> </div>
-		<div class="event-end-timing"> <?php echo $event_etiming;?> </div>
-		<div class="event-date"><?php echo $event;?></div>
+		<?php if ($event_title) {?><div class="event-title"> <?php  echo $event_title;?> </div> <?php }?>
+		<?php if($event_details) {?><div class="event-details"> <?php  echo $event_details; ?> </div><?php }?>
+		<?php if($event_stiming) {?><div class="event-start-timing"> <?php  echo $event_stiming; ?> </div><?php }?>
+		<?php if($event_etiming) {?><div class="event-end-timing"> <?php echo $event_etiming;?> </div><?php }?>
+		<?php if($event_date) {?><div class="event-date"><?php  echo $event; ?></div><?php }?>
 		<?php $postid = get_the_ID();?>
 		<?php wp_set_post_categories( $postid, array( 2 ) ); ?>
 	</div>
@@ -47,11 +47,11 @@ while ( $loop->have_posts() ) { $loop->the_post();
 
 if ($present_date > $event_date) {?>
 	<div class="past-container">
-		<div class="event-title"> <?php echo $event_title;?> </div>
-		<div class="event-details"> <?php echo $event_details;?> </div>
-		<div class="event-start-timing"> <?php echo $event_stiming;?> </div>
-		<div class="event-end-timing"> <?php echo $event_etiming;?> </div>
-		<div class="event-date"><?php echo $event;?></div>
+	<?php if ($event_title) {?><div class="event-title"> <?php  echo $event_title;?> </div> <?php }?>
+		<?php if($event_details) {?><div class="event-details"> <?php  echo $event_details; ?> </div><?php }?>
+		<?php if($event_stiming) {?><div class="event-start-timing"> <?php  echo $event_stiming; ?> </div><?php }?>
+		<?php if($event_etiming) {?><div class="event-end-timing"> <?php echo $event_etiming;?> </div><?php }?>
+		<?php if($event_date) {?><div class="event-date"><?php  echo $event; ?></div><?php }?>
 		<?php $postid = get_the_ID();?>
 		<?php wp_set_post_categories( $postid, array( 3 ) ); ?>
 	</div>
