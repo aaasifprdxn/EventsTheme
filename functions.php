@@ -2,13 +2,22 @@
 /**
 * functions
  */
+//adding menu
+add_theme_support('menus');
+
+register_nav_menus(
+		array(
+				'top-menu'=> 'Top Menu Location',
+				//'bottom-menu'=> 'Bottom Menu Location',
+		)
+);
 
 //custom post type mobile
 function events_post_type() { 
 	$args = array(
 			'labels' => array(
 					'name' => 'Event',
-					'singular_name' => 'Events',
+					'singular_name' => 'Event',
 					'add_new' => 'Add New Event',
 					'add_new_item' => 'Add New Event',
 					'edit_item' => 'Edit Event',
@@ -24,8 +33,9 @@ function events_post_type() {
 			'public' => true,
 			'has_archive' => true,
 			'menu_icon' => 'dashicons-button',
-			'supports' => array('custom-fields'),
+			'supports' => array('title'),
 			'capability_type' => 'post',
+      'taxonomies'  => array( 'category' ),
 	);
 	register_post_type('event', $args);
 }
