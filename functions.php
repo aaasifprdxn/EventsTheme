@@ -2,6 +2,12 @@
 /**
 * functions
  */
+
+//linking to html
+function eventtheme_enqueue_style() {
+	wp_enqueue_style( 'stylesheet', get_stylesheet_uri(), [],filemtime(get_template_directory().'/style.css') );
+} 
+add_action( 'wp_enqueue_scripts', 'eventtheme_enqueue_style' );
 //adding menu
 add_theme_support('menus');
 
